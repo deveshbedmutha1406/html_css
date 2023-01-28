@@ -1,0 +1,122 @@
+.keyboard{
+    height:400px;
+    /* width: 500px; */
+    background-color: rgb(77, 72, 72);
+}
+
+p{
+    margin:0;
+    padding-left: 35px;
+    padding-top: 20px;
+    font-size: 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* .row1{
+    background-color: black;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0px;
+    column-gap:0px;
+    width: 800px;
+
+} */
+
+.key{
+    margin-top: 10px;
+    height: 60px;
+    width: 80px;
+    border: solid;
+    margin-right: 5px;
+    border-width: 1px;
+    border-color: rgba(17, 0, 0, 0.276);;
+    box-shadow:-1px 2px 5px  rgba(255, 255, 255, 0.9);
+    background-color: rgba(17, 0, 0, 0.276);
+
+} 
+
+.row1{
+    justify-content: center;
+    margin-top:3px;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+}
+.sp{
+    padding-left:200px;
+}
+
+.space{
+    /* margin-left: 80px; */
+    height: 60px;
+    width: 515px;
+    border: solid;
+    border-width: 1px;
+    border-color: rgba(17, 0, 0, 0.276);;
+    box-shadow:-1px 2px 5px  rgba(255, 255, 255, 0.9);
+    background-color: rgba(17, 0, 0, 0.276);
+}
+
+.k1{
+    font-size: 15px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.key1{
+    padding-left: 10px;
+    padding-top: 20px;
+    width: 120px;
+    border: solid;
+    margin-right: 5px;
+    border-width: 1px;
+    border-color: rgba(17, 0, 0, 0.276);;
+    box-shadow:-1px 2px 5px  rgba(255, 255, 255, 0.9);
+    background-color: rgba(17, 0, 0, 0.276);
+
+} 
+
+.left{
+    /* background-color: cyan; */
+    width: 220px;
+    height: 60px;
+    display: flex;
+    margin-left: 275px;
+}
+
+.right{
+    /* background-color:red; */
+    display: flex;
+    height: 60px;
+    align-items: center;
+    
+}
+
+.k2{
+    font-size: 15px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+}
+
+.key2{
+    height: 100%;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    border-width: 1px;
+    border-color: rgba(17, 0, 0, 0.276);;
+    box-shadow:-1px 2px 5px  rgba(255, 255, 255, 0.9);
+    background-color: rgba(17, 0, 0, 0.276);
+
+} 
+
+.middle{
+    margin-left: 1px;
+    margin-right: 20px;
+}
+.last-row{
+    display: flex;
+    margin-top: 10px;
+    margin-right: 10px;
+    align-items: center;
+}
