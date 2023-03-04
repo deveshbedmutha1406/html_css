@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>index2</title>
+</head>
+<body>
+    <p id="arr"></p>
+    <button id="btn1" onclick="fun()">Sort Alpa</button>
+    <button id="btn2" onclick="fun2()">Sort Numerically</button>
+    <br>
+    <br>
+    <input onkeyup="fun3()" type="text" name="" id="input1" placeholder="Numbers">
+    <button onclick="fun4()" id="sum-btn">Sum All</button>
+
+    <p id="api-info"></p>
+</body>
+
+<script>
+    const arr = [40, 100, 1, 5, 25, 10]
+
+    function fun(){
+        arr.sort();
+        document.getElementById("arr").innerHTML = arr;
+    }
+
+    function fun2(){
+        arr.sort(function(a, b){return a - b});
+        document.getElementById("arr").innerHTML = arr;
+    }
+
+    function fun3(){
+        <!-- console.log([document.getElementById("input1").value]); -->
+    }
+
+    function fun4(){
+        const tmp = document.getElementById("input1").value;
+        const tmp_arr = tmp.split(', ');
+        for(let i = 0;i<tmp_arr.length; i++){
+            tmp_arr[i] = parseInt(tmp_arr[i]);
+        }
+        ans = tmp_arr.reduce(function(prev, val, idx, arr){return prev + val}, 0);
+        console.log(ans);
+        document.getElementById("sum-btn").innerHTML = ans;
+    }
+    // call back function
+    function display(sum){
+        console.log(sum);
+    }
+
+    function myCal(num1, num2, myCallBack){
+        let tmp = num1 + num2;
+        myCallBack(tmp);
+    }
+    myCal(2, 4, display);
+
+    // setTimeout
+    function myfun(){
+        console.log("Display After 3 seconds");
+    }
+    setTimeout(myfun, 3000);
+
+    /*setInterval(function(){
+        console.log("This will be display after each 2seconds");
+    }, 2000);*/
+
+    // promise.
+    let myPromise = new Promise(function(myResolve, myReject){
+        let x = 1;
+        if(x == 0){
+            myResolve("OK");
+        }else{
+            myReject("Error");
+        }
+    });
+    myPromise.then(
+        function(value){display(value);},
+        function(error){display(error);}
+    );
+
+    // example using promise;
+    let Promise2 = new Promise(function(myResolve, myReject){
+        setTimeout(function(){myResolve("Promise example")}, 3000);
+    })
+    Promise2.then(function(val){console.log(val)});
+
+    let apiCall = new Promise(function(myResolve, myReject){
+        let req = new XMLHttpRequest();
+        req.open('GET', 'https://reqres.in/api/users');
+        req.onload = function(){
+            if(req.status == 200){
+                myResolve(req.response);
+            }else{
+                myReject("Call Faild");
+            }
+        };
+        req.send();
+    });
+    function display1(response){
+        console.log(JSON.parse(response));
+        let data = JSON.parse(response)["data"];
+        let ans;
+        for(let i =0;i<data.length; i++){
+            let html = `<h3>`;
+            for(key in data[i]){
+                html+= `${key} = ${data[i][key]} `;
+            }
+            html += `</h3>`;
+            ans += html;
+        }
+        document.getElementById("api-info").innerHTML = ans;
+    }
+    apiCall.then(function(val){display1(val);}, function(error){display(error);});
+
+    // async await..
+    async function myDisp(){
+        let myProm = new Promise(function(resolve){
+            setTimeout(function(){resolve("async functino after 3sec")},3000);
+        });
+        console.log(await myProm);
+    }
+    myDisp();
+</script>
+</html>
